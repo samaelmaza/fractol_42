@@ -6,7 +6,7 @@
 /*   By: sreffers <sreffers@student.42madrid.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:56:11 by sreffers          #+#    #+#             */
-/*   Updated: 2025/11/04 17:50:26 by sreffers         ###   ########.fr       */
+/*   Updated: 2025/11/04 23:51:41 by sreffers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	my_pixel_put(int x, int y, t_img *img, int color)
 	*(unsigned int *)(img->pixels_ptr + offset) = color;
 }
 
-static void	fractal_calculation(t_complex *z, t_complex *c, t_fractal *fractal)
+static void	fractal_switch(t_complex *z, t_complex *c, t_fractal *fractal)
 {
 	if (ft_strncmp(fractal->name, "julia", 6) == 0)
 	{
@@ -44,7 +44,7 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 	i = 0;
 	z.x = (map(x, -2, +2, WIDTH) * fractal->zoom) + fractal->shift_x;
 	z.y = (map(y, +2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
-	fractal_calculation(&z, &c, fractal);
+	fractal_switch(&z, &c, fractal);
 	while (i < fractal->iteration_definition)
 	{
 		if (ft_strncmp(fractal->name, "tricorn", 7) == 0)

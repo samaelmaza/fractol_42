@@ -6,7 +6,7 @@
 /*   By: sreffers <sreffers@student.42madrid.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:58:41 by sreffers          #+#    #+#             */
-/*   Updated: 2025/11/04 19:06:08 by sreffers         ###   ########.fr       */
+/*   Updated: 2025/11/04 19:19:47 by sreffers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,38 @@ int	is_double(char *s)
 
 	i = 0;
 	dot = 0;
-	while(s[i] == ' ' || (s[i] >= 9 && s[i] <= 13))
+	while (s[i] == ' ' || (s[i] >= 9 && s[i] <= 13))
 		i++;
-	if(s[i] == '+' || s[i] =='-')
+	if (s[i] == '+' || s[i] == '-')
 		i++;
-	while(s[i])
+	while (s[i])
 	{
-		if(s[i] == '.')
+		if (s[i] == '.')
 		{
 			dot++;
 			i++;
 		}
-		if(s[i] < '0' || s[i] > '9')
-			return 0;
+		if (s[i] < '0' || s[i] > '9')
+			return (0);
 		i++;
 	}
-	if(dot > 1)
-		return 0;
-	return 1;
+	if (dot > 1)
+		return (0);
+	return (1);
 }
 
-int is_valid(char **av, int size)
+int	is_valid(char **av, int size)
 {
 	int	i;
+
 	i = 2;
-	while(i < size)
+	while (i < size)
 	{
-		if(!is_double(av[i]) || atodbl(av[i]) > 2.00 || atodbl(av[i]) < -2.00)
-			return 0;
+		if (!is_double(av[i]) || atodbl(av[i]) > 2.00 || atodbl(av[i]) < -2.00)
+			return (0);
 		i++;
 	}
-	return 1;
+	return (1);
 }
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)

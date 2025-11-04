@@ -6,7 +6,7 @@
 /*   By: sreffers <sreffers@student.42madrid.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:52:35 by sreffers          #+#    #+#             */
-/*   Updated: 2025/11/03 16:24:45 by sreffers         ###   ########.fr       */
+/*   Updated: 2025/11/05 00:06:32 by sreffers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ int	key_handler(int keysym, t_fractal *fractal)
 	else if (keysym == XK_Down)
 		fractal->shift_y -= (0.5 * fractal->zoom);
 	else if (keysym == XK_plus || keysym == XK_KP_Add)
-		fractal->iteration_definition += 10;
+	{
+		if (fractal->iteration_definition + 10 < MAX_ITER)
+			fractal->iteration_definition += 10;
+	}
 	else if (keysym == XK_minus)
 	{
 		if (fractal->iteration_definition - 10 > 0)
@@ -47,12 +50,22 @@ int	key_handler(int keysym, t_fractal *fractal)
 
 int	mouse_handler(int button, int x, int y, t_fractal *fractal)
 {
-	(void) x;
-	(void) y;
+	double	mouse_x;
+	double	mouse_y;
+	double	zoom_factor;
+
+	zoom_factor = 0.0;
+	mouse_x = map(x, -2, 2, WIDTH - 1) * fractal->zoom + fractal->shift_x;
+	mouse_y = map(y, 2, -2, HEIGHT - 1) * fractal->zoom + fractal->shift_y;
 	if (button == Button5)
-		fractal->zoom *= 1.05;
+		zoom_factor = 1.05;
 	else if (button == Button4)
-		fractal->zoom *= 0.95;
+		zoom_factor = 0.95;
+	else
+		return (0);
+	fractal->zoom *= zoom_factor;
+	fractal->shift_x = mouse_x - map(x, -2, 2, WIDTH - 1) * fractal->zoom;
+	fractal->shift_y = mouse_y - map(y, 2, -2, HEIGHT - 1) * fractal->zoom;
 	fractal_render(fractal);
 	return (0);
 }

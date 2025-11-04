@@ -6,7 +6,7 @@
 /*   By: sreffers <sreffers@student.42madrid.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 23:02:26 by sreffers          #+#    #+#             */
-/*   Updated: 2025/11/04 17:49:10 by sreffers         ###   ########.fr       */
+/*   Updated: 2025/11/04 23:23:20 by sreffers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 double	map(double unscaled_num, double new_min, double new_max, double old_max)
 {
-	return ((new_max - new_min) * (unscaled_num - 0) / (old_max - 0) + new_min);
+	return ((new_max - new_min) * (unscaled_num / old_max) + new_min);
 }
 
 t_complex	sum_complex(t_complex z1, t_complex z2)

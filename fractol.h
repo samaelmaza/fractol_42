@@ -6,7 +6,7 @@
 /*   By: sreffers <sreffers@student.42madrid.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:54:10 by sreffers          #+#    #+#             */
-/*   Updated: 2025/11/04 19:06:15 by sreffers         ###   ########.fr       */
+/*   Updated: 2025/11/05 00:05:07 by sreffers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <math.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "minilibx-linux/mlx.h"
@@ -25,8 +24,9 @@
 \n\t\"./fractol julia <value_1>> <value_2>\" or\n\
 \t\"./fractol tricorn\"\n"
 # define ERROR_MESSAGE_VALUE "Please enter correct values between -2 and 2\n"
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 950
+# define HEIGHT 950
+# define MAX_ITER 500
 
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
@@ -80,8 +80,8 @@ void		fractal_render(t_fractal *fractal);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 double		atodbl(char *str);
-int	is_double(char *s);
-int is_valid(char **av, int size);
+int			is_double(char *s);
+int			is_valid(char **av, int size);
 void		handle_pixel(int x, int y, t_fractal *fractal);
 int			close_handler(t_fractal *fractal);
 int			mouse_handler(
