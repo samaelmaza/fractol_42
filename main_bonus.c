@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sreffers <sreffers@student.42madrid.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 23:01:27 by sreffers          #+#    #+#             */
-/*   Updated: 2025/11/05 14:34:08 by sreffers         ###   ########.fr       */
+/*   Updated: 2025/11/05 14:37:31 by sreffers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 void	is_julia(char **av, int ac, t_fractal *fractal)
 {
@@ -31,7 +31,8 @@ int	main(int ac, char **av)
 	t_fractal	fractal;
 
 	if ((ac == 2 && ft_strncmp(av[1], "mandelbrot", 11) == 0)
-		|| (ac == 4 && ft_strncmp(av[1], "julia", 6) == 0))
+		|| (ac == 4 && ft_strncmp(av[1], "julia", 6) == 0)
+		|| (ac == 2 && ft_strncmp(av[1], "tricorn", 7) == 0))
 	{
 		fractal.name = av[1];
 		if (ft_strncmp(av[1], "julia", 6) == 0)

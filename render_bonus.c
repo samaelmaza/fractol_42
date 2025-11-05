@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sreffers <sreffers@student.42madrid.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:56:11 by sreffers          #+#    #+#             */
-/*   Updated: 2025/11/05 14:36:02 by sreffers         ###   ########.fr       */
+/*   Updated: 2025/11/05 14:37:16 by sreffers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 static void	my_pixel_put(int x, int y, t_img *img, int color)
 {
@@ -47,6 +47,8 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 	fractal_switch(&z, &c, fractal);
 	while (i < fractal->iteration_definition)
 	{
+		if (ft_strncmp(fractal->name, "tricorn", 7) == 0)
+			z.y = -z.y;
 		z = sum_complex(square_complex(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
 		{

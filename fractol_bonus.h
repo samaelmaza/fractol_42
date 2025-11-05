@@ -1,12 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sreffers <sreffers@student.42madrid.c>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/05 14:31:47 by sreffers          #+#    #+#             */
+/*   Updated: 2025/11/05 14:31:55 by sreffers         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sreffers <sreffers@student.42madrid.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:54:10 by sreffers          #+#    #+#             */
-/*   Updated: 2025/11/05 14:32:49 by sreffers         ###   ########.fr       */
+/*   Updated: 2025/11/05 00:05:07 by sreffers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +33,8 @@
 # include "minilibx-linux/mlx.h"
 
 # define ERROR_MESSAGE "Please enter \n\t\"./fractol mandelbrot\" or\
-\n\t\"./fractol julia <value_1>> <value_2>\""
+\n\t\"./fractol julia <value_1>> <value_2>\" or\n\
+\t\"./fractol tricorn\"\n"
 # define ERROR_MESSAGE_VALUE "Please enter correct values between -2 and 2\n"
 # define WIDTH 950
 # define HEIGHT 950

@@ -6,7 +6,7 @@
 /*   By: sreffers <sreffers@student.42madrid.c>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:52:35 by sreffers          #+#    #+#             */
-/*   Updated: 2025/11/05 00:06:32 by sreffers         ###   ########.fr       */
+/*   Updated: 2025/11/05 14:19:16 by sreffers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	key_handler(int keysym, t_fractal *fractal)
 		if (fractal->iteration_definition + 10 < MAX_ITER)
 			fractal->iteration_definition += 10;
 	}
-	else if (keysym == XK_minus)
+	else if (keysym == XK_minus || keysym == XK_KP_Subtract)
 	{
 		if (fractal->iteration_definition - 10 > 0)
 			fractal->iteration_definition -= 10;
